@@ -54,7 +54,7 @@ describe('fillTank', () => {
 
   it('Округлюй обсяг залитого палива вниз до десятих ', () => {
     const customer = {
-      money: 6,
+      money: 10,
       vehicle: {
         maxTankCapacity: 50,
         fuelRemains: 15.5,
@@ -64,8 +64,8 @@ describe('fillTank', () => {
 
     fillTank(customer, fuelPrice, 3.14159);
 
-    expect(customer.vehicle.fuelRemains).toBe(18.5);
-    expect(customer.money).toBe(0);
+    expect(customer.vehicle.fuelRemains).toBe(18.6);
+    expect(customer.money).toBe(3.8);
   });
 
   it('Якщо вийшло < 2 літрів, взагалі не заправляй клієнта ', () => {
